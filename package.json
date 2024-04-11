@@ -14,24 +14,15 @@
   "contributes": {
     "commands": [
       {
-        "command": "select-region.setStartMark",
+        "command": "select-region.toggleMark",
         "title": "Set start mark"
-      },
-      {
-        "command": "select-region.setEndMark",
-        "title": "Set end mark"
-      }      
+      }
     ],
     "keybindings": [
       {
-          "command": "select-region.setStartMark",
-          "key": "cmd-alt-k",
-          "when": "editorTextFocus"
-      },
-      {
-          "command": "select-region.setEndMark",
-          "key": "cmd-alt-j",
-          "when": "editorTextFocus"
+        "command": "select-region.toggleMark",
+        "key": "cmd-alt-k",
+        "when": "editorTextFocus"
       }
     ]
   },

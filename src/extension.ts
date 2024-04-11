@@ -1,33 +1,33 @@
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
 let mark: vscode.Position | null = null;
+let isSelecting = false;
 
 export function activate(context: vscode.ExtensionContext) {
+  const toggleMarkCommand = vscode.commands.registerCommand(
+    "select-region.toggleMark",
+    () => {
+      const editor = vscode.window.activeTextEditor;
+      if (!editor) return;
 
-	const setMarkCommand = vscode.commands.registerCommand('select-region.setStartMark', () => {
-		const editor = vscode.window.activeTextEditor;
-		if (editor) {
-			mark = editor.selection.active;
-				vscode.window.showInformationMessage('Start mark set');
-		}
-});
+      if (!isSelecting) {
+        mark = editor.selection.active;
+        isSelecting = true;
+        vscode.window.showInformationMessage("Start mark set");
+      } else {
+        if (mark) {
+          const currentPos = editor.selection.active;
+          editor.selection = new vscode.Selection(mark, currentPos);
+          vscode.window.showInformationMessage("Region selected");
+        }
+        isSelecting = false;
+      }
+    }
+  );
 
-const setEndMarkCommand = vscode.commands.registerCommand('select-region.setEndMark', () => {
-	const editor = vscode.window.activeTextEditor;
-	if (editor && mark) {
-			const currentPos = editor.selection.active;
-			editor.selection = new vscode.Selection(mark, currentPos);
-			vscode.window.showInformationMessage('Region selected');
-	}
-});
-
-
-
-context.subscriptions.push(setMarkCommand);
-context.subscriptions.push(setEndMarkCommand);
+  context.subscriptions.push(toggleMarkCommand);
 }
 
-// This method is called when your extension is deactivated
 export function deactivate() {
-	mark = null;
+  mark = null;
 }
