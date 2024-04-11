@@ -2,12 +2,24 @@
   "name": "vscode-select-region",
   "displayName": "Select Region",
   "description": "Emacs-style set mark and select arbitrary region",
-  "version": "0.0.1",
+  "publisher": "alexpogosyan",
+  "version": "0.0.2",
+  "icon": "icon.png",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexpogosyan/vscode-select-region.git"
+  },
+  "keywords": [
+    "emacs",
+    "keybindings",
+    "select region"
+  ],
   "engines": {
-    "vscode": "^1.88.0"
+    "vscode": "^1.86.0"
   },
   "categories": [
-    "Other"
+    "Keymaps"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
@@ -35,7 +47,7 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.88.0",
+    "@types/vscode": "^1.86.0",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
     "@typescript-eslint/eslint-plugin": "^7.4.0",
