@@ -3,7 +3,7 @@
   "displayName": "Select Region",
   "description": "Emacs-style set mark and select arbitrary region",
   "publisher": "alexpogosyan",
-  "version": "0.0.2",
+  "version": "0.2.0",
   "icon": "icon.png",
   "license": "MIT",
   "repository": {
